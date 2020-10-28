@@ -1,0 +1,31 @@
+---
+
+- hosts: all
+  become: true
+  vars_prompt:
+  - name: "gitlabuser"
+    prompt: "Enter your gitlab username"
+    private: no
+  - name: "gitlabpassword"
+    prompt: "Enter your gitlab password"
+    private: yes
+  - name: login_user
+    prompt: "Enter login user"
+    private: no
+  - name: login_password
+    prompt: "Enter login password"
+    private: yes
+  - name: db_name
+    prompt: "Enter db name"
+    private: no
+  - name: host
+    prompt: "Enter Server_IP or Domain Name"
+    private: no
+  roles:
+    - permissions
+    - git
+    - php7.3
+    - nginx
+    - mysql
+
+

@@ -1,0 +1,2 @@
+- name: Set Directory permissions
+  file: path=/var/www/ owner=root  group=root mode=0755 state=directory recurse=yes

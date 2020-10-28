@@ -1,0 +1,13 @@
+gitlabuser : gopi.pacha
+
+gitlabpassword: Gopi@1996
+
+login_user: root
+
+login_password: password
+
+db_name: lets_eduvate
+ 
+branch: develop
+
+host: letseduvate.k12.appify.in

@@ -1,0 +1,35 @@
+- name: Insatlling Nginx
+  tags: nignx
+  apt: name=nginx state=latest
+
+
+- name: Updating Nginx config file
+  become: true
+  copy:
+    src: templates/nginx.conf
+    dest: /etc/nginx/sites-available/lets_eduvate
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Linking with sites-enabled files
+  become: true
+  file:
+    src: "/etc/nginx/sites-available/lets_eduvate"
+    dest: "/etc/nginx/sites-enabled/lets_eduvate"
+    state: link
+    owner: root
+    group: root
+
+
+- name: "Changing the Default Ip or Domine name"
+  lineinfile:
+          path: /etc/nginx/sites-available/lets_eduvate
+          regexp: '(server_name ;)'
+          line: "server_name  {{host}} ;"
+          owner: root
+          mode: 0644
+          group: root
+          state: present
+
+

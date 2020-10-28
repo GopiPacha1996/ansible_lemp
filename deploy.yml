@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  become: true
+  vars_files:
+        - "./vars/input.yml"
+  
+  roles:
+      - git
+  tasks:
+     - name: restarting php-fpm and nginx
+       command: systemctl restart {{item}}
+       with_items:
+             - nginx
+             - php7.3-fpm
+

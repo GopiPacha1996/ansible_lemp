@@ -1,0 +1,19 @@
+- name: Installing git on server
+  apt:
+    update_cache: yes
+    name: git
+    state: latest    
+- name: cloning repo
+  git: 
+   repo: "https://{{ gitlabuser | urlencode }}:{{ gitlabpassword | urlencode }}@gitlab.com/k121/lets_eduvate.git"
+   dest: /var/www/lets_eduvate
+   force: yes
+   version: "{{branch}}"
+ 
+           #- name: cloning lets_eduvate
+           # expect:
+           #  command: git clone https://gitlab.com/k121/lets_eduvate.git  /var/www/ansible_work_space/lets_eduvate/
+           # responses:
+           # Username: "{{ gitlabuser }}" 
+           # Password: "{{ gitlabpassword }}"
+
