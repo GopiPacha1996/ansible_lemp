@@ -5,15 +5,9 @@
     state: latest    
 - name: cloning repo
   git: 
-   repo: "https://{{ gitlabuser | urlencode }}:{{ gitlabpassword | urlencode }}@gitlab.com/k121/lets_eduvate.git"
+   repo: "https://{{ gitlabuser | urlencode }}:{{ gitlabpassword | urlencode }}@gitlab.com/<url>"
    dest: /var/www/lets_eduvate
    force: yes
    version: "{{branch}}"
  
-           #- name: cloning lets_eduvate
-           # expect:
-           #  command: git clone https://gitlab.com/k121/lets_eduvate.git  /var/www/ansible_work_space/lets_eduvate/
-           # responses:
-           # Username: "{{ gitlabuser }}" 
-           # Password: "{{ gitlabpassword }}"
-
+  
